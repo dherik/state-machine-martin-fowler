@@ -14,26 +14,26 @@ import io.github.dherik.states.UnlockedPanel;
 import io.github.dherik.states.WaitingForDrawer;
 import io.github.dherik.states.WaitingForLight;
 
-public class BasicStateMachine /*extends StateMachineBuilder*/ {
+class BasicStateMachine /*extends StateMachineBuilder*/ {
 
     //Events doorClosed, drawerOpened, lightOn, panelClosed;
-    DoorClosed doorClosed;
-    DrawerOpened drawerOpened;
-    LightOn lightOn;
-    PanelClosed panelClosed;
+    private DoorClosed doorClosed;
+    private DrawerOpened drawerOpened;
+    private LightOn lightOn;
+    private PanelClosed panelClosed;
 
     //Commands unlockPanel, lockPanel, lockDoor, unlockDoor;
-    UnlockPanel unlockPanel;
-    LockPanel lockPanel;
-    LockDoor lockDoor;
-    UnlockDoor unlockDoor;
+    private UnlockPanel unlockPanel;
+    private LockPanel lockPanel;
+    private LockDoor lockDoor;
+    private UnlockDoor unlockDoor;
 
     //States idle, active, waitingForLight, waitingForDrawer, unlockedPanel;
-    Idle idle;
-    Active active;
-    WaitingForLight waitingForLight;
-    WaitingForDrawer waitingForDrawer;
-    UnlockedPanel unlockedPanel;
+    private Idle idle;
+    private Active active;
+    private WaitingForLight waitingForLight;
+    private WaitingForDrawer waitingForDrawer;
+    private UnlockedPanel unlockedPanel;
 
 //	ResetEvents doorOpened;
     protected void defineStateMachine() {

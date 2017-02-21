@@ -6,7 +6,6 @@ public class Active extends State {
 
 	public Active(String name) {
 		super(name);
-		// TODO Auto-generated constructor stub
 	}
 
 }

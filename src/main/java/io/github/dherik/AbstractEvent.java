@@ -1,10 +1,10 @@
 package io.github.dherik;
 
-public class AbstractEvent {
+class AbstractEvent {
 
-	private final String name, code;
+	private String name, code;
 
-	public AbstractEvent(String name, String code) {
+	AbstractEvent(String name, String code) {
 		this.name = name;
 		this.code = code;
 	}
@@ -18,7 +18,7 @@ public class AbstractEvent {
 	}
 
 	public void code(String code) {
-		this.code(code);
+		this.code = code;
 	}
 
 }

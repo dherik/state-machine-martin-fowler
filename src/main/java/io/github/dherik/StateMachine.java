@@ -2,18 +2,19 @@ package io.github.dherik;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
-public class StateMachine {
+class StateMachine {
 
 	private State start;
 
-	public StateMachine(State start) {
+	StateMachine(State start) {
 		this.start = start;
 	}
 
-	public Collection<State> getStates() {
-		List<State> result = new ArrayList<State>();
+	private Collection<State> getStates() {
+		List<State> result = new ArrayList<>();
 		collectStates(result, start);
 		return result;
 	}
@@ -26,19 +27,18 @@ public class StateMachine {
 			collectStates(result, next);
 	}
 
-	private List<Event> resetEvents = new ArrayList<Event>();
+	private List<Event> resetEvents = new ArrayList<>();
 
-	public void addResetEvents(Event... events) {
-		for (Event e : events)
-			resetEvents.add(e);
+	void addResetEvents(Event... events) {
+		Collections.addAll(resetEvents, events);
 	}
 
-	public boolean isResetEvent(String eventCode) {
+	boolean isResetEvent(String eventCode) {
 		return resetEventCodes().contains(eventCode);
 	}
 
 	private List<String> resetEventCodes() {
-		List<String> result = new ArrayList<String>();
+		List<String> result = new ArrayList<>();
 		for (Event e : resetEvents)
 			result.add(e.getCode());
 		return result;
@@ -46,11 +46,12 @@ public class StateMachine {
 
 	private void addResetEvent_byAddingTransitions(Event e) {
 		for (State s : getStates())
-			if (!s.hasTransition(e.getCode()))
+			if (!s.hasTransition(e.getCode())) {
 				s.addTransition(e, start);
+			}
 	}
 	
-	public State getStart() {
+	State getStart() {
 		return start;
 	}
 

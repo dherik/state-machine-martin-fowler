@@ -19,21 +19,21 @@ public class State {
 		this.name = name;
 	}
 
-	public void addTransition(Event event, State targetState) {
+	void addTransition(Event event, State targetState) {
 		assert null != targetState;
 		transitions.put(event.getCode(), new Transition(this, event,
 				targetState));
 	}
 
-	public boolean hasTransition(String eventCode) {
+	boolean hasTransition(String eventCode) {
 		return transitions.containsKey(eventCode);
 	}
 
-	public State targetState(String eventCode) {
+	State targetState(String eventCode) {
 		return transitions.get(eventCode).getTarget();
 	}
 
-	public void executeActions(CommandChannel commandsChannel) {
+	void executeActions(CommandChannel commandsChannel) {
 
 		for (Command c : actions) {
 			commandsChannel.send(c.getCode());
@@ -48,16 +48,16 @@ public class State {
 		return result;
 	}
 
-	public void addAction(Command command) {
+	protected void addAction(Command command) {
 		this.actions.add(command);
 	}
 	
-	public State transition(Event event) {
+	protected State transition(Event event) {
 		this.tmp = event;
 		return this;
 	}
 
-	public State to(State state) {
+	State to(State state) {
 		addTransition(tmp, state);
 		this.tmp = null;
 		return this;

@@ -11,7 +11,6 @@ public class Idle extends State {
 
 	public Idle(String name) {
 		super(name);
-		// TODO Auto-generated constructor stub
 	}
 
 	public Idle actions(UnlockDoor unlockDoor, LockPanel lockPanel) {

@@ -5,7 +5,7 @@ import org.junit.Test;
 public class StateMachineDSLTest {
 
     @Test
-    public void deAbertaParaEmAnalise() {
+    public void dslTest() {
         Event doorClosed = new Event("doorClosed", "D1CL");
         Event drawerOpened = new Event("drawerOpened", "D2OP");
         Event lightOn = new Event("lightOn", "L1ON");

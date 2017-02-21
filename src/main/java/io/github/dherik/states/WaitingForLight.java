@@ -6,7 +6,6 @@ public class WaitingForLight extends State{
 
 	public WaitingForLight(String name) {
 		super(name);
-		// TODO Auto-generated constructor stub
 	}
 
 }

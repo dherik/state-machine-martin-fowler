@@ -1,9 +1,8 @@
 package io.github.dherik;
 
-public class CommandChannel {
+class CommandChannel {
 
-	public void send(String code) {
-		// TODO Auto-generated method stub
+	void send(String code) {
 		System.out.println("Sending code " + code + " though communication channel.");
 	}
 

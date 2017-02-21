@@ -1,11 +1,11 @@
 package io.github.dherik;
 
-public class Controller {
+class Controller {
 
 	private State currentState;
 	private StateMachine machine;
 	
-	public Controller(StateMachine machine, State currentState) {
+	Controller(StateMachine machine, State currentState) {
 		this.machine = machine;
 		this.currentState = currentState;
 	}
@@ -16,7 +16,7 @@ public class Controller {
 
 	private CommandChannel commandsChannel = new CommandChannel();
 
-	public void handle(String eventCode) {
+	void handle(String eventCode) {
 		
 		if (currentState.hasTransition(eventCode)) {
 			transitionTo(currentState.targetState(eventCode));
