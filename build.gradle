@@ -1,9 +1,22 @@
-apply plugin: 'java'
+plugins {
+    id 'application'
+}
 
-dependencies {
-    testCompile 'junit:junit:4.12'
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
 }
 
 repositories {
-    jcenter()
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.9.2'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
 }
