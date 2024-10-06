@@ -3,8 +3,9 @@ package io.github.dherik;
 class Controller {
 
 	private State currentState;
-	private StateMachine machine;
-	
+	private final StateMachine machine;
+	private final CommandChannel commandsChannel = new CommandChannel();
+
 	Controller(StateMachine machine, State currentState) {
 		this.machine = machine;
 		this.currentState = currentState;
@@ -13,8 +14,6 @@ class Controller {
 	public CommandChannel getCommandChannel() {
 		return commandsChannel;
 	}
-
-	private CommandChannel commandsChannel = new CommandChannel();
 
 	void handle(String eventCode) {
 		

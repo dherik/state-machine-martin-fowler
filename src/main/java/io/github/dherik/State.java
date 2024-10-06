@@ -30,7 +30,7 @@ public class State {
 	}
 
 	State targetState(String eventCode) {
-		return transitions.get(eventCode).getTarget();
+		return transitions.get(eventCode).target();
 	}
 
 	void executeActions(CommandChannel commandsChannel) {
@@ -44,7 +44,7 @@ public class State {
 	Collection<State> getAllTargets() {
 		List<State> result = new ArrayList<>();
 		for (Transition t : transitions.values())
-			result.add(t.getTarget());
+			result.add(t.target());
 		return result;
 	}
 

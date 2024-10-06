@@ -2,7 +2,8 @@ package io.github.dherik;
 
 class AbstractEvent {
 
-	private String name, code;
+	private final String name;
+    private String code;
 
 	AbstractEvent(String name, String code) {
 		this.name = name;

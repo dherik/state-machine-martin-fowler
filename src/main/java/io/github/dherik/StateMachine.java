@@ -7,7 +7,8 @@ import java.util.List;
 
 class StateMachine {
 
-	private State start;
+	private final State start;
+	private final List<Event> resetEvents = new ArrayList<>();
 
 	StateMachine(State start) {
 		this.start = start;
@@ -26,8 +27,6 @@ class StateMachine {
 		for (State next : s.getAllTargets())
 			collectStates(result, next);
 	}
-
-	private List<Event> resetEvents = new ArrayList<>();
 
 	void addResetEvents(Event... events) {
 		Collections.addAll(resetEvents, events);
